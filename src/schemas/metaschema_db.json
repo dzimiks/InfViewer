@@ -1,0 +1,2220 @@
+{
+	"location": "ui-2017-tim202.4:tim202.4poprq3@jdbc:jtds:sqlserver://147.91.175.155/ui-2017-tim202.4",
+	"name": "Naučna produkcija",
+	"description": "Mali poslovni sistem za naučnu produkciju.",
+	"type": "sql",
+	"infResources": [
+		{
+			"name": "Tabele naucne produkcije",
+			"packages": [
+				{
+					"name": "Paket MPS",
+					"type": "sql",
+					"entities": [
+						{
+							"name": "AKT_O_ORGANIZACIJI",
+							"url": "AKT_O_ORGANIZACIJI",
+							"attributes": [
+								{
+									"name": "PS_TIP",
+									"type": "char",
+									"length": 2,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "PS_IDENTIFIKATOR",
+									"type": "numeric",
+									"length": "20",
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "AO_BROJ_AKTA",
+									"type": "numeric",
+									"length": 20,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "AO_VAZI_OD",
+									"type": "datetime",
+									"length": 50,
+									"primaryKey": false,
+									"mandatory": true
+								},
+								{
+									"name": "AO_DO",
+									"type": "datetime",
+									"length": 50,
+									"primaryKey": false,
+									"mandatory": false
+								}
+							],
+							"relations": []
+						},
+						{
+							"name": "AKT_O_REGISTRACIJI",
+							"url": "AKT_O_REGISTRACIJI",
+							"attributes": [
+								{
+									"name": "PS_TIP",
+									"type": "char",
+									"length": 2,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "PS_IDENTIFIKATOR",
+									"type": "numeric",
+									"length": "20",
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "AR_OZNAKA_DOKUMENTA",
+									"type": "numeric",
+									"length": 20,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "AR_DATUM_REGISTRACIJE",
+									"type": "datetime",
+									"length": 50,
+									"primaryKey": false,
+									"mandatory": true
+								},
+								{
+									"name": "AR_VAZILA_DO",
+									"type": "datetime",
+									"length": 50,
+									"primaryKey": false,
+									"mandatory": false
+								}
+							],
+							"relations": []
+						},
+						{
+							"name": "AUTOR",
+							"url": "AUTOR",
+							"attributes": [
+								{
+									"name": "NR_ID",
+									"type": "numeric",
+									"length": 20,
+									"primaryKey": true,
+									"mandatory": false
+								},
+								{
+									"name": "AUTOR_FAKULTET",
+									"type": "varchar",
+									"length": 20,
+									"primaryKey": false,
+									"mandatory": false
+								},
+								{
+									"name": "AUTOR_EMEJL",
+									"type": "varchar",
+									"length": 30,
+									"primaryKey": true,
+									"mandatory": false
+								},
+								{
+									"name": "AUTOR_GLAVNI_AUTOR",
+									"type": "boolean",
+									"length": 5,
+									"primaryKey": false,
+									"mandatory": true
+								},
+								{
+									"name": "AUTOR_IME",
+									"type": "varchar",
+									"length": 20,
+									"primaryKey": false,
+									"mandatory": false
+								},
+								{
+									"name": "AUTOR_PREZIME",
+									"type": "varchar",
+									"length": 20,
+									"primaryKey": false,
+									"mandatory": false
+								},
+								{
+									"name": "AUTOR_ZVANJE",
+									"type": "varchar",
+									"length": 20,
+									"primaryKey": false,
+									"mandatory": false
+								}
+							],
+							"relations": []
+						},
+						{
+							"name": "CASOPIS",
+							"url": "CASOPIS",
+							"attributes": [
+								{
+									"name": "PS_TIP",
+									"type": "char",
+									"length": 2,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "PS_IDENTIFIKATOR",
+									"type": "numeric",
+									"length": 20,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "NCAS_NAZIV_CASOPISA",
+									"type": "varchar",
+									"length": 50,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "UO_IDENTIFIKATOR_ODBORA",
+									"type": "numeric",
+									"length": 10,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "REC_EMEJL_RECENZENTA",
+									"type": "varchar",
+									"length": 30,
+									"primaryKey": true,
+									"mandatory": true
+								}
+							],
+							"relations": []
+						},
+						{
+							"name": "DODELJENE_DELATNOSTI",
+							"url": "DODELJENE_DELATNOSTI",
+							"attributes": [
+								{
+									"name": "DR_IDENTIFIKATOR",
+									"type": "char",
+									"length": 3,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "PD_OZNAKA",
+									"type": "char",
+									"length": 8,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "UO_PS_TIP",
+									"type": "char",
+									"length": 2,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "PS_IDENTIFIKATOR",
+									"type": "numeric",
+									"length": 20,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "OJ_IDENTIFIKATOR",
+									"type": "char",
+									"length": 3,
+									"primaryKey": true,
+									"mandatory": true
+								}
+							],
+							"relations": []
+						},
+						{
+							"name": "DRAZAVA",
+							"url": "DRAZAVA",
+							"attributes": [
+								{
+									"name": "DR_IDENTIFIKATOR",
+									"type": "char",
+									"length": 3,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "NM_IDENTIFIKATOR",
+									"type": "numeric",
+									"length": 20,
+									"primaryKey": false,
+									"mandatory": false
+								},
+								{
+									"name": "DRA_DR_IDENTIFIKATOR",
+									"type": "char",
+									"length": 3,
+									"primaryKey": false,
+									"mandatory": false
+								},
+								{
+									"name": "DR_NAZIV",
+									"type": "varchar",
+									"length": 60,
+									"primaryKey": true,
+									"mandatory": false
+								},
+								{
+									"name": "DR_GRB",
+									"type": "varchar",
+									"length": 50,
+									"primaryKey": false,
+									"mandatory": false
+								},
+								{
+									"name": "DR_HIMNA",
+									"type": "varchar",
+									"length": 50,
+									"primaryKey": false,
+									"mandatory": false
+								},
+								{
+									"name": "DR_ZASTAVA",
+									"type": "varchar",
+									"length": 50,
+									"primaryKey": false,
+									"mandatory": false
+								},
+								{
+									"name": "DR_POSTOJI",
+									"type": "boolean",
+									"length": 5,
+									"primaryKey": false,
+									"mandatory": false
+								}
+							],
+							"relations": []
+						},
+						{
+							"name": "DRUGA_TABELA",
+							"url": "DRUGA_TABELA",
+							"attributes": [
+								{
+									"name": "ID",
+									"type": "numeric",
+									"length": 10,
+									"primaryKey": true
+								},
+								{
+									"name": "NAZIV_DRUGE_TABELE",
+									"type": "varchar",
+									"length": 20,
+									"primaryKey": false
+								},
+								{
+									"name": "NEKI_BROJ",
+									"type": "numeric",
+									"length": 10,
+									"primaryKey": false
+								}
+							],
+							"relations": []
+						},
+						{
+							"name": "DRZAVLJANSTVA",
+							"url": "DRZAVLJANSTVA",
+							"attributes": [
+								{
+									"name": "DR_IDENTIFIKATOR",
+									"type": "char",
+									"length": 3,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "PS_TIP",
+									"type": "char",
+									"length": 2,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "PS_IDENTIFIKATOR",
+									"type": "numeric",
+									"length": 30,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "FL_ID",
+									"type": "numeric",
+									"length": 30,
+									"primaryKey": true,
+									"mandatory": true
+								}
+							],
+							"relations": []
+						},
+						{
+							"name": "EVIDENCIJA_FIZICKIH_LICA",
+							"url": "EVIDENCIJA_FIZICKIH_LICA",
+							"attributes": [
+								{
+									"name": "PS_TIP",
+									"type": "char",
+									"length": 2,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "PS_IDENTIFIKATOR",
+									"type": "numeric",
+									"length": 30,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "FL_ID",
+									"type": "numeric",
+									"length": 30,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "DR_IDENTIFIKATOR",
+									"type": "char",
+									"length": 3,
+									"primaryKey": false,
+									"mandatory": false
+								},
+								{
+									"name": "FL_PREZIME",
+									"type": "varchar",
+									"length": 30,
+									"primaryKey": false,
+									"mandatory": true
+								},
+								{
+									"name": "FL_IME",
+									"type": "varchar",
+									"length": 30,
+									"primaryKey": false,
+									"mandatory": true
+								},
+								{
+									"name": "FL_JMBG",
+									"type": "char",
+									"length": 13,
+									"primaryKey": false,
+									"mandatory": false
+								},
+								{
+									"name": "FL_POL",
+									"type": "char",
+									"length": 1,
+									"primaryKey": false,
+									"mandatory": true
+								},
+								{
+									"name": "FL_FOTOGRAFIJA",
+									"type": "varchar",
+									"length": 30,
+									"primaryKey": false,
+									"mandatory": false
+								}
+							],
+							"relations": []
+						},
+						{
+							"name": "MESNA_ZAJEDNICA",
+							"url": "MESNA_ZAJEDNICA",
+							"attributes": [
+								{
+									"name": "DR_IDENTIFIKATOR",
+									"type": "char",
+									"length": 3,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "OP_OZNAKA",
+									"type": "numeric",
+									"length": 3,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "MZ_IDENTIFIKATOR",
+									"type": "numeric",
+									"length": 30,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "NM_IDENTIFIKATOR",
+									"type": "numeric",
+									"length": 30,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "MZ_NAZIV",
+									"type": "varchar",
+									"length": 60,
+									"primaryKey": false,
+									"mandatory": true
+								}
+							],
+							"relations": []
+						},
+						{
+							"name": "MIHAILOBAZA",
+							"url": "MIHAILOBAZA",
+							"attributes": [
+								{
+									"name": "IME",
+									"type": "varchar",
+									"length": 50,
+									"primaryKey": true
+								},
+								{
+									"name": "PREZIME",
+									"type": "varchar",
+									"length": 50,
+									"primaryKey": true
+								},
+								{
+									"name": "SMER",
+									"type": "varchar",
+									"length": 50,
+									"primaryKey": false
+								},
+								{
+									"name": "GODINA",
+									"type": "numeric",
+									"length": 10,
+									"primaryKey": false
+								},
+								{
+									"name": "EMAIL",
+									"type": "varchar",
+									"length": 50,
+									"primaryKey": true
+								}
+							],
+							"relations": []
+						},
+						{
+							"name": "NA_UPOTREBU",
+							"url": "NA_UPOTREBU",
+							"attributes": [
+								{
+									"name": "NIM_TIP",
+									"type": "char",
+									"length": 1,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "NIM_IDENTIFIKATOR",
+									"type": "numeric",
+									"length": 30,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "PRO_OZBAKA",
+									"type": "numeric",
+									"length": 30,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "UO_PS_TIP",
+									"type": "char",
+									"length": 2,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "PS_IDENTIFIKATOR",
+									"type": "numeric",
+									"length": 30,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "OJ_IDENTIFIKATOR",
+									"type": "char",
+									"length": 3,
+									"primaryKey": true,
+									"mandatory": true
+								}
+							],
+							"relations": []
+						},
+						{
+							"name": "NAGRADA",
+							"url": "NAGRADA",
+							"attributes": [
+								{
+									"name": "NR_ID",
+									"type": "numeric",
+									"length": 30,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "NAG_NAZIV_NAGRADE",
+									"type": "varchar",
+									"length": 20,
+									"primaryKey": false,
+									"mandatory": true
+								},
+								{
+									"name": "NAG_IDENTIFIKATOR_NAGRADE",
+									"type": "numeric",
+									"length": 30,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "NAG_INSTITUCIJA",
+									"type": "varchar",
+									"length": 50,
+									"primaryKey": false,
+									"mandatory": true
+								},
+								{
+									"name": "NAG_DATUM_DODELE",
+									"type": "datetime",
+									"length": 50,
+									"primaryKey": false,
+									"mandatory": false
+								}
+							],
+							"relations": []
+						},
+						{
+							"name": "NASELJENO_MESTO",
+							"url": "NASELJENO_MESTO",
+							"attributes": [
+								{
+									"name": "NM_IDENTIFIKATOR",
+									"type": "numeric",
+									"length": 30,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "DR_IDENTIFIKATOR",
+									"type": "char",
+									"length": 3,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "NM_NAZIV",
+									"type": "varchar",
+									"length": 30,
+									"primaryKey": false,
+									"mandatory": true
+								},
+								{
+									"name": "NM_PTT_OZNAKA",
+									"type": "varchar",
+									"length": 20,
+									"primaryKey": false,
+									"mandatory": true
+								}
+							],
+							"relations": []
+						},
+						{
+							"name": "NAUCNE_KONFERENCIJE",
+							"url": "NAUCNE_KONFERENCIJE",
+							"attributes": [
+								{
+									"name": "PS_TIP",
+									"type": "char",
+									"length": 2,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "PS_IDENTIFIKATOR",
+									"type": "numeric",
+									"length": 30,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "NK_NAZIV_KONFERENCIJE",
+									"type": "varchar",
+									"length": 50,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "NK_REDOVNA",
+									"type": "boolean",
+									"length": 5,
+									"primaryKey": false,
+									"mandatory": false
+								},
+								{
+									"name": "NK_TEMA_KONFERENCIJE",
+									"type": "varchar",
+									"length": 50,
+									"primaryKey": false,
+									"mandatory": true
+								},
+								{
+									"name": "NK_DATUM_POCETKA",
+									"type": "datetime",
+									"length": 50,
+									"primaryKey": false,
+									"mandatory": true
+								},
+								{
+									"name": "NK_DATUM_ZAVRSETKA",
+									"type": "datetime",
+									"length": 50,
+									"primaryKey": false,
+									"mandatory": true
+								},
+								{
+									"name": "NK_WEB_SAJT",
+									"type": "varchar",
+									"length": 50,
+									"primaryKey": false,
+									"mandatory": false
+								},
+								{
+									"name": "NK_MAKSIMALNI_BROJ_UCESNIKA",
+									"type": "numeric",
+									"length": 30,
+									"primaryKey": false,
+									"mandatory": false
+								},
+								{
+									"name": "NK_ROK_ZA_PRIJAVU",
+									"type": "datetime",
+									"length": 50,
+									"primaryKey": false,
+									"mandatory": false
+								}
+							],
+							"relations": []
+						},
+						{
+							"name": "NAUCNI_CASOPIS",
+							"url": "NAUCNI_CASOPIS",
+							"attributes": [
+								{
+									"name": "PS_TIP",
+									"type": "char",
+									"length": 2,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "PS_IDENTIFIKATOR",
+									"type": "numeric",
+									"length": 20,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "NCAS_NAZIV_CASOPISA",
+									"type": "varchar",
+									"length": 50,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "NCAS_TIRAZ",
+									"type": "numeric",
+									"length": 300,
+									"primaryKey": false,
+									"mandatory": false
+								},
+								{
+									"name": "NCAS_REDNI_BROJ_PRIMERKA",
+									"type": "numeric",
+									"length": 300,
+									"primaryKey": false,
+									"mandatory": true
+								},
+								{
+									"name": "NCAS_DATUM_OBJAVE_CASOPISA",
+									"type": "datetime",
+									"length": 50,
+									"primaryKey": false,
+									"mandatory": false
+								}
+							],
+							"relations": [
+								{
+									"referencedAttributes": [
+										"UREDNICKI_ODBOR/PS_TIP",
+										"UREDNICKI_ODBOR/PS_IDENTIFIKATOR",
+										"UREDNICKI_ODBOR/NCAS_NAZIV_CASOPISA"
+									],
+									"referringAttributes": [
+										"PS_TIP",
+										"PS_IDENTIFIKATOR",
+										"NCAS_NAZIV_CASOPISA"
+									]
+								},
+								{
+									"referencedAttributes": [
+										"UREDNIK/PS_TIP",
+										"UREDNIK/PS_IDENTIFIKATOR",
+										"UREDNIK/NCAS_NAZIV_CASOPISA"
+									],
+									"referringAttributes": [
+										"PS_TIP",
+										"PS_IDENTIFIKATOR",
+										"NCAS_NAZIV_CASOPISA"
+									]
+								}
+							]
+						},
+						{
+							"name": "NAUCNI_RAD",
+							"url": "NAUCNI_RAD",
+							"attributes": [
+								{
+									"name": "NR_NASLOV_NAUCNOG_RADA",
+									"type": "varchar",
+									"length": 200,
+									"primaryKey": false,
+									"mandatory": true
+								},
+								{
+									"name": "NR_ID",
+									"type": "numeric",
+									"length": 20,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "NR_TEMA_NAUCNOG_RADA",
+									"type": "varchar",
+									"length": 50,
+									"primaryKey": false,
+									"mandatory": true
+								},
+								{
+									"name": "NR_RANG",
+									"type": "varchar",
+									"length": 3,
+									"primaryKey": false,
+									"mandatory": true
+								},
+								{
+									"name": "NR_DATUM_OBJAVE",
+									"type": "datetime",
+									"length": 50,
+									"primaryKey": false,
+									"mandatory": false
+								},
+								{
+									"name": "NR_UNIVERZITET_NAUCNOG_RADA",
+									"type": "varchar",
+									"length": 50,
+									"primaryKey": false,
+									"mandatory": false
+								},
+								{
+									"name": "NR_KLJUCNE_RECI",
+									"type": "varchar",
+									"length": 200,
+									"primaryKey": false,
+									"mandatory": false
+								}
+							],
+							"relations": [
+								{
+									"referencedAttributes": [
+										"AUTOR/NR_ID"
+									],
+									"referringAttributes": [
+										"NR_ID"
+									]
+								}
+							]
+						},
+						{
+							"name": "OBJAVLJENI_NAUCNI_RADOVI",
+							"url": "OBJAVLJENI_NAUCNI_RADOVI",
+							"attributes": [
+								{
+									"name": "NR_ID",
+									"type": "numeric",
+									"length": 30,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "PS_TIP",
+									"type": "char",
+									"length": 2,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "PS_IDENTIFIKATOR",
+									"type": "numeric",
+									"length": 30,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "NCAS_NAZIV_CASOPISA",
+									"type": "varchar",
+									"length": 50,
+									"primaryKey": true,
+									"mandatory": true
+								}
+							],
+							"relations": []
+						},
+						{
+							"name": "OBUHVATA_OPSTINE",
+							"url": "OBUHVATA_OPSTINE",
+							"attributes": [
+								{
+									"name": "TR_ID",
+									"type": "char",
+									"length": 2,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "REG_IDENTIFIKATOR",
+									"type": "numeric",
+									"length": 30,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "DR_IDENTIFIKATOR",
+									"type": "char",
+									"length": 3,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "OP_OZNAKA",
+									"type": "numeric",
+									"length": 3,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "NM_IDENTIFIKATOR",
+									"type": "numeric",
+									"length": 30,
+									"primaryKey": true,
+									"mandatory": true
+								}
+							],
+							"relations": []
+						},
+						{
+							"name": "OPSTINE",
+							"url": "OPSTINE",
+							"attributes": [
+								{
+									"name": "DR_IDENTIFIKATOR",
+									"type": "char",
+									"length": 3,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "OP_OZNAKA",
+									"type": "numeric",
+									"length": 3,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "NM_IDENTIFIKATOR",
+									"type": "numeric",
+									"length": 30,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "OP_NAZIV",
+									"type": "varchar",
+									"length": 60,
+									"primaryKey": false,
+									"mandatory": true
+								}
+							],
+							"relations": []
+						},
+						{
+							"name": "OPSTINE_MESTA",
+							"url": "OPSTINE_MESTA",
+							"attributes": [
+								{
+									"name": "NM_IDENTIFIKATOR",
+									"type": "numeric",
+									"length": 30,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "DR_IDENTIFIKATOR",
+									"type": "char",
+									"length": 3,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "OP_OZNAKA",
+									"type": "numeric",
+									"length": 3,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "OPS_NM_IDENTIFIKATOR",
+									"type": "numeric",
+									"length": 30,
+									"primaryKey": true,
+									"mandatory": true
+								}
+							],
+							"relations": []
+						},
+						{
+							"name": "ORGANIZACIONE_JEDINICE",
+							"url": "ORGANIZACIONE_JEDINICE",
+							"attributes": [
+								{
+									"name": "UO_PS_TIP",
+									"type": "char",
+									"length": 2,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "PS_IDENTIFIKATOR",
+									"type": "numeric",
+									"length": 30,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "OJ_IDENTIFIKATOR",
+									"type": "char",
+									"length": 3,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "DR_IDENTIFIKATOR",
+									"type": "char",
+									"length": 3,
+									"primaryKey": false,
+									"mandatory": false
+								},
+								{
+									"name": "NM_IDENTIFIKATOR",
+									"type": "numeric",
+									"length": 30,
+									"primaryKey": false,
+									"mandatory": false
+								},
+								{
+									"name": "OJ_NAZIV",
+									"type": "varchar",
+									"length": 120,
+									"primaryKey": false,
+									"mandatory": true
+								},
+								{
+									"name": "ADRESA",
+									"type": "varchar",
+									"length": 60,
+									"primaryKey": false,
+									"mandatory": true
+								},
+								{
+									"name": "WWW",
+									"type": "varchar",
+									"length": 60,
+									"primaryKey": false,
+									"mandatory": false
+								},
+								{
+									"name": "E_MAIL",
+									"type": "varchar",
+									"length": 60,
+									"primaryKey": false,
+									"mandatory": false
+								}
+							],
+							"relations": []
+						},
+						{
+							"name": "ORGANIZATOR",
+							"url": "ORGANIZATOR",
+							"attributes": [
+								{
+									"name": "OO_NAZIV_ORGANIZACIONOG_ODBORA",
+									"type": "varchar",
+									"length": 50,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "OO_TIP_ODBORA",
+									"type": "varchar",
+									"length": 50,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "ORG_IME_ORGANIZATORA",
+									"type": "varchar",
+									"length": 50,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "ORG_PREZIME_ORGANIZATORA",
+									"type": "varchar",
+									"length": 50,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "ORG_UNIVERZITET",
+									"type": "varchar",
+									"length": 50,
+									"primaryKey": false,
+									"mandatory": true
+								}
+							],
+							"relations": []
+						},
+						{
+							"name": "ORGANIZATORI_KONFERENCIJE",
+							"url": "ORGANIZATORI_KONFERENCIJE",
+							"attributes": [
+								{
+									"name": "OO_NAZIV_ORGANIZACIONOG_ODBORA",
+									"type": "varchar",
+									"length": 50,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "OO_TIP_ODBORA",
+									"type": "varchar",
+									"length": 50,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "PS_TIP",
+									"type": "char",
+									"length": 2,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "PS_IDENTIFIKATOR",
+									"type": "numeric",
+									"length": 30,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "NK_NAZIV_KONFERENCIJE",
+									"type": "varchar",
+									"length": 50,
+									"primaryKey": true,
+									"mandatory": true
+								}
+							],
+							"relations": []
+						},
+						{
+							"name": "ORGANIZATORNI_ODBOR",
+							"url": "ORGANIZATORNI_ODBOR",
+							"attributes": [
+								{
+									"name": "OO_NAZIV_ORGANIZACIONOG_ODBORA",
+									"type": "varchar",
+									"length": 50,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "OO_TIP_ODBORA",
+									"type": "varchar",
+									"length": 50,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "ORG_IME_ORGANIZATORA",
+									"type": "varchar",
+									"length": 50,
+									"primaryKey": false,
+									"mandatory": false
+								},
+								{
+									"name": "ORG_PREZIME_ORGANIZATORA",
+									"type": "varchar",
+									"length": 50,
+									"primaryKey": false,
+									"mandatory": false
+								}
+							],
+							"relations": []
+						},
+						{
+							"name": "POSLOVNI_SISTEM",
+							"url": "POSLOVNI_SISTEM",
+							"attributes": [
+								{
+									"name": "PS_TIP",
+									"type": "char",
+									"length": 2,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "PS_IDENTIFIKATOR",
+									"type": "numeric",
+									"length": 30,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "POS_PS_TIP",
+									"type": "char",
+									"length": 2,
+									"primaryKey": false,
+									"mandatory": false
+								},
+								{
+									"name": "POS_PS_IDENTIFIKATOR",
+									"type": "numeric",
+									"length": 30,
+									"primaryKey": false,
+									"mandatory": false
+								},
+								{
+									"name": "PS_NAZIV",
+									"type": "varchar",
+									"length": 120,
+									"primaryKey": false,
+									"mandatory": true
+								},
+								{
+									"name": "PS_ADRESA",
+									"type": "varchar",
+									"length": 120,
+									"primaryKey": false,
+									"mandatory": true
+								},
+								{
+									"name": "PS_WWW",
+									"type": "varchar",
+									"length": 120,
+									"primaryKey": false,
+									"mandatory": false
+								},
+								{
+									"name": "PS_SLUZBENI_E_MAIL",
+									"type": "varchar",
+									"length": 60,
+									"primaryKey": false,
+									"mandatory": false
+								},
+								{
+									"name": "PS_LOGO",
+									"type": "varchar",
+									"length": 120,
+									"primaryKey": false,
+									"mandatory": false
+								},
+								{
+									"name": "PS_MEMORANDUM",
+									"type": "varchar",
+									"length": 120,
+									"primaryKey": false,
+									"mandatory": false
+								},
+								{
+									"name": "PS_PIB",
+									"type": "char",
+									"length": 11,
+									"primaryKey": false,
+									"mandatory": false
+								},
+								{
+									"name": "PS_MATICNI_BROJ",
+									"type": "char",
+									"length": 10,
+									"primaryKey": false,
+									"mandatory": false
+								}
+							],
+							"relations": []
+						},
+						{
+							"name": "PROSTORIJE",
+							"url": "PROSTORIJE",
+							"attributes": [
+								{
+									"name": "RN_PS_TIP",
+									"type": "char",
+									"length": 2,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "PS_IDENTIFIKATOR",
+									"type": "numeric",
+									"length": 30,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "NIM_TIP",
+									"type": "char",
+									"length": 1,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "NIM_IDENTIFIKATOR",
+									"type": "numeric",
+									"length": 30,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "PRO_OZBAKA",
+									"type": "numeric",
+									"length": 30,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "PRO_SPRAT",
+									"type": "numeric",
+									"length": 4,
+									"primaryKey": false,
+									"mandatory": false
+								},
+								{
+									"name": "PRO_MARKACIJA",
+									"type": "varchar",
+									"length": 8,
+									"primaryKey": false,
+									"mandatory": false
+								}
+							],
+							"relations": []
+						},
+						{
+							"name": "RADNA_MESTA",
+							"url": "RADNA_MESTA",
+							"attributes": [
+								{
+									"name": "PS_TIP",
+									"type": "char",
+									"length": 2,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "PS_IDENTIFIKATOR",
+									"type": "numeric",
+									"length": 30,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "RM_OZNAKA",
+									"type": "numeric",
+									"length": 4,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "RM_NAZIV",
+									"type": "varchar",
+									"length": 80,
+									"primaryKey": false,
+									"mandatory": true
+								}
+							],
+							"relations": []
+						},
+						{
+							"name": "RASPORED_NA_RADNA_MESTA",
+							"url": "RASPORED_NA_RADNA_MESTA",
+							"attributes": [
+								{
+									"name": "RZ_PS_TIP",
+									"type": "char",
+									"length": 2,
+									"primaryKey": false,
+									"mandatory": false
+								},
+								{
+									"name": "RM_OZNAKA",
+									"type": "numeric",
+									"length": 4,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "ZA_REDNI_BROJ",
+									"type": "numeric",
+									"length": 30,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "FL_ID",
+									"type": "numeric",
+									"length": 30,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "RRM_BROJ_RASPOREDA",
+									"type": "numeric",
+									"length": 30,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "PS_IDENTIFIKATOR",
+									"type": "numeric",
+									"length": 30,
+									"primaryKey": false,
+									"mandatory": true
+								},
+								{
+									"name": "RRM_OD",
+									"type": "datetime",
+									"length": 50,
+									"primaryKey": false,
+									"mandatory": true
+								},
+								{
+									"name": "RRM_DO",
+									"type": "datetime",
+									"length": 50,
+									"primaryKey": false,
+									"mandatory": false
+								}
+							],
+							"relations": []
+						},
+						{
+							"name": "RECENZENT",
+							"url": "RECENZENT",
+							"attributes": [
+								{
+									"name": "PS_TIP",
+									"type": "char",
+									"length": 2,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "PS_IDENTIFIKATOR",
+									"type": "numeric",
+									"length": 30,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "NCAS_NAZIV_CASOPISA",
+									"type": "varchar",
+									"length": 50,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "UO_IDENTIFIKATOR_ODBORA",
+									"type": "numeric",
+									"length": 30,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "REC_IME",
+									"type": "varchar",
+									"length": 30,
+									"primaryKey": false,
+									"mandatory": true
+								},
+								{
+									"name": "REC_PREZIME",
+									"type": "varchar",
+									"length": 30,
+									"primaryKey": false,
+									"mandatory": true
+								},
+								{
+									"name": "REC_EMEJL_RECENZENTA",
+									"type": "varchar",
+									"length": 30,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "REC_ZVANJE",
+									"type": "varchar",
+									"length": 20,
+									"primaryKey": false,
+									"mandatory": false
+								}
+							],
+							"relations": []
+						},
+						{
+							"name": "RECENZENTI_RADA",
+							"url": "RECENZENTI_RADA",
+							"attributes": [
+								{
+									"name": "NR_ID",
+									"type": "numeric",
+									"length": 30,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "RR_PS_TIP",
+									"type": "char",
+									"length": 2,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "PS_IDENTIFIKATOR",
+									"type": "numeric",
+									"length": 30,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "NCAS_NAZIV_CASOPISA",
+									"type": "varchar",
+									"length": 50,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "UO_IDENTIFIKATOR_ODBORA",
+									"type": "numeric",
+									"length": 30,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "REC_EMEJL_RECENZENTA",
+									"type": "varchar",
+									"length": 30,
+									"primaryKey": true,
+									"mandatory": true
+								}
+							],
+							"relations": []
+						},
+						{
+							"name": "REGIONI",
+							"url": "REGIONI",
+							"attributes": [
+								{
+									"name": "TR_ID",
+									"type": "char",
+									"length": 2,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "REG_IDENTIFIKATOR",
+									"type": "numeric",
+									"length": 30,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "DR_IDENTIFIKATOR",
+									"type": "char",
+									"length": 3,
+									"primaryKey": false,
+									"mandatory": false
+								},
+								{
+									"name": "NM_IDENTIFIKATOR",
+									"type": "numeric",
+									"length": 30,
+									"primaryKey": false,
+									"mandatory": false
+								},
+								{
+									"name": "REG_NAZIV",
+									"type": "varchar",
+									"length": 80,
+									"primaryKey": false,
+									"mandatory": false
+								}
+							],
+							"relations": []
+						},
+						{
+							"name": "REGISTAR_NEKRETNINA",
+							"url": "REGISTAR_NEKRETNINA",
+							"attributes": [
+								{
+									"name": "RN_PS_TIP",
+									"type": "char",
+									"length": 2,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "PS_IDENTIFIKATOR",
+									"type": "numeric",
+									"length": 30,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "NIM_TIP",
+									"type": "char",
+									"length": 1,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "NIM_IDENTIFIKATOR",
+									"type": "numeric",
+									"length": 30,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "DR_IDENTIFIKATOR",
+									"type": "char",
+									"length": 3,
+									"primaryKey": false,
+									"mandatory": false
+								},
+								{
+									"name": "NM_IDENTIFIKATOR",
+									"type": "numeric",
+									"length": 30,
+									"primaryKey": false,
+									"mandatory": false
+								},
+								{
+									"name": "NIM_OPIS",
+									"type": "varchar",
+									"length": 1200,
+									"primaryKey": false,
+									"mandatory": false
+								},
+								{
+									"name": "NIM_ADRESA",
+									"type": "varchar",
+									"length": 80,
+									"primaryKey": false,
+									"mandatory": false
+								}
+							],
+							"relations": []
+						},
+						{
+							"name": "REGISTAR_PRIVREDNIH_DELATNOSTI",
+							"url": "REGISTAR_PRIVREDNIH_DELATNOSTI",
+							"attributes": [
+								{
+									"name": "DR_IDENTIFIKATOR",
+									"type": "char",
+									"length": 3,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "PD_OZNAKA",
+									"type": "char",
+									"length": 8,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "PD_NAZIV_DELATNOSTI",
+									"type": "varchar",
+									"length": 80,
+									"primaryKey": false,
+									"mandatory": true
+								}
+							],
+							"relations": []
+						},
+						{
+							"name": "REGISTAR_ZAPOSLENIH",
+							"url": "REGISTAR_ZAPOSLENIH",
+							"attributes": [
+								{
+									"name": "RZ_PS_TIP",
+									"type": "char",
+									"length": 2,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "PS_IDENTIFIKATOR",
+									"type": "numeric",
+									"length": 30,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "ZA_REDNI_BROJ",
+									"type": "numeric",
+									"length": 30,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "FL_ID",
+									"type": "numeric",
+									"length": 30,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "ZA_SLUZBENI_TELEFON",
+									"type": "varchar",
+									"length": 40,
+									"primaryKey": false,
+									"mandatory": false
+								},
+								{
+									"name": "ZA_SLUZBENI_E_MAIL",
+									"type": "varchar",
+									"length": 60,
+									"primaryKey": false,
+									"mandatory": false
+								},
+								{
+									"name": "ZA_DATPRVOG",
+									"type": "datetime",
+									"length": 50,
+									"primaryKey": false,
+									"mandatory": false
+								},
+								{
+									"name": "ZA_RADIO_DO",
+									"type": "datetime",
+									"length": 50,
+									"primaryKey": false,
+									"mandatory": false
+								}
+							],
+							"relations": []
+						},
+						{
+							"name": "REGISTROVANE_DELATNOSTI",
+							"url": "REGISTROVANE_DELATNOSTI",
+							"attributes": [
+								{
+									"name": "DR_IDENTIFIKATOR",
+									"type": "char",
+									"length": 3,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "PD_OZNAKA",
+									"type": "char",
+									"length": 8,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "PS_TIP",
+									"type": "char",
+									"length": 2,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "PS_IDENTIFIKATOR",
+									"type": "numeric",
+									"length": 30,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "AR_OZNAKA_DOKUMENTA",
+									"type": "numeric",
+									"length": 30,
+									"primaryKey": true,
+									"mandatory": true
+								}
+							],
+							"relations": []
+						},
+						{
+							"name": "SADRZI_NASELJA",
+							"url": "SADRZI_NASELJA",
+							"attributes": [
+								{
+									"name": "TR_ID",
+									"type": "char",
+									"length": 2,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "REG_IDENTIFIKATOR",
+									"type": "numeric",
+									"length": 30,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "DR_IDENTIFIKATOR",
+									"type": "char",
+									"length": 3,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "NM_IDENTIFIKATOR",
+									"type": "numeric",
+									"length": 30,
+									"primaryKey": true,
+									"mandatory": true
+								}
+							],
+							"relations": []
+						},
+						{
+							"name": "SASTAV_KOMPANIJE",
+							"url": "SASTAV_KOMPANIJE",
+							"attributes": [
+								{
+									"name": "PS_TIP",
+									"type": "char",
+									"length": 2,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "PS_IDENTIFIKATOR",
+									"type": "numeric",
+									"length": 30,
+									"primaryKey": true,
+									"mandatory": true
+								}
+							],
+							"relations": []
+						},
+						{
+							"name": "SASTAV_POSLOVNOG_SISTEMA",
+							"url": "SASTAV_POSLOVNOG_SISTEMA",
+							"attributes": [
+								{
+									"name": "OJ_IDENTIFIKATOR",
+									"type": "char",
+									"length": 3,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "UO_PS_TIP",
+									"type": "char",
+									"length": 2,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "PS_IDENTIFIKATOR",
+									"type": "numeric",
+									"length": 30,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "AO_BROJ_AKTA",
+									"type": "numeric",
+									"length": 30,
+									"primaryKey": true,
+									"mandatory": true
+								}
+							],
+							"relations": []
+						},
+						{
+							"name": "SASTAV_REGIONA",
+							"url": "SASTAV_REGIONA",
+							"attributes": [
+								{
+									"name": "TR_ID",
+									"type": "char",
+									"length": 2,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "REG_IDENTIFIKATOR",
+									"type": "numeric",
+									"length": 30,
+									"primaryKey": true,
+									"mandatory": true
+								}
+							],
+							"relations": []
+						},
+						{
+							"name": "SLOZENA_DRZAVA",
+							"url": "SLOZENA_DRZAVA",
+							"attributes": [
+								{
+									"name": "DR_IDENTIFIKATOR",
+									"type": "char",
+									"length": 3,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "SLO_REDNI_BROJ",
+									"type": "numeric",
+									"length": 30,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "SLO_OD",
+									"type": "datetime",
+									"length": 50,
+									"primaryKey": false,
+									"mandatory": true
+								},
+								{
+									"name": "SLO_DO",
+									"type": "datetime",
+									"length": 50,
+									"primaryKey": false,
+									"mandatory": false
+								}
+							],
+							"relations": []
+						},
+						{
+							"name": "SPONZOR",
+							"url": "SPONZOR",
+							"attributes": [
+								{
+									"name": "PS_TIP",
+									"type": "char",
+									"length": 2,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "PS_IDENTIFIKATOR",
+									"type": "numeric",
+									"length": 30,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "NK_NAZIV_KONFERENCIJE",
+									"type": "varchar",
+									"length": 50,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "SP_NAZIV_SPONZORA",
+									"type": "varchar",
+									"length": 50,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "SP_UDEO",
+									"type": "numeric",
+									"length": 30,
+									"primaryKey": false,
+									"mandatory": true
+								},
+								{
+									"name": "SP_LOGO",
+									"type": "varchar",
+									"length": 100,
+									"primaryKey": false,
+									"mandatory": false
+								},
+								{
+									"name": "SP_ZLATNI_SPONZOR",
+									"type": "boolean",
+									"length": 5,
+									"primaryKey": false,
+									"mandatory": true
+								}
+							],
+							"relations": []
+						},
+						{
+							"name": "STRUJTURA_JEDINICE",
+							"url": "STRUJTURA_JEDINICE",
+							"attributes": [
+								{
+									"name": "UO_PS_TIP",
+									"type": "char",
+									"length": 2,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "PS_IDENTIFIKATOR",
+									"type": "numeric",
+									"length": 30,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "OJ_IDENTIFIKATOR",
+									"type": "char",
+									"length": 3,
+									"primaryKey": true,
+									"mandatory": true
+								}
+							],
+							"relations": []
+						},
+						{
+							"name": "TABELA",
+							"url": "TABELA",
+							"attributes": [
+								{
+									"name": "ID",
+									"type": "numeric",
+									"length": 10,
+									"primaryKey": true
+								},
+								{
+									"name": "NAZIV_TABELE",
+									"type": "varchar",
+									"length": 20,
+									"primaryKey": false
+								}
+							],
+							"relations": []
+						},
+						{
+							"name": "TIP_REGIONA",
+							"url": "TIP_REGIONA",
+							"attributes": [
+								{
+									"name": "TR_ID",
+									"type": "char",
+									"length": 2,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "TR_NAZIV",
+									"type": "varchar",
+									"length": 30,
+									"primaryKey": false,
+									"mandatory": true
+								}
+							],
+							"relations": []
+						},
+						{
+							"name": "UCESNIK_",
+							"url": "UCESNIK_",
+							"attributes": [
+								{
+									"name": "PS_TIP",
+									"type": "char",
+									"length": 2,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "PS_IDENTIFIKATOR",
+									"type": "numeric",
+									"length": 30,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "NK_NAZIV_KONFERENCIJE",
+									"type": "varchar",
+									"length": 50,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "UC_IME_UCESNIKA",
+									"type": "varchar",
+									"length": 50,
+									"primaryKey": false,
+									"mandatory": true
+								},
+								{
+									"name": "UC_PREZIME_UCESNIKA",
+									"type": "varchar",
+									"length": 50,
+									"primaryKey": false,
+									"mandatory": true
+								},
+								{
+									"name": "UC_AKADEMSKA_USTANOVA",
+									"type": "varchar",
+									"length": 50,
+									"primaryKey": false,
+									"mandatory": true
+								},
+								{
+									"name": "UC_ADRESA_UCESNIKA",
+									"type": "varchar",
+									"length": 50,
+									"primaryKey": false,
+									"mandatory": false
+								},
+								{
+									"name": "UC_BROJ_PRIJAVE",
+									"type": "numeric",
+									"length": 30,
+									"primaryKey": true,
+									"mandatory": true
+								}
+							],
+							"relations": []
+						},
+						{
+							"name": "UREDNICKI_ODBOR",
+							"url": "UREDNICKI_ODBOR",
+							"attributes": [
+								{
+									"name": "PS_TIP",
+									"type": "char",
+									"length": 2,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "PS_IDENTIFIKATOR",
+									"type": "numeric",
+									"length": 20,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "NCAS_NAZIV_CASOPISA",
+									"type": "varchar",
+									"length": 50,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "UO_IDENTIFIKATOR_ODBORA",
+									"type": "numeric",
+									"length": 20,
+									"primaryKey": true,
+									"mandatory": true
+								}
+							],
+							"relations": []
+						},
+						{
+							"name": "UREDNIK",
+							"url": "UREDNIK",
+							"attributes": [
+								{
+									"name": "PS_TIP",
+									"type": "char",
+									"length": 2,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "PS_IDENTIFIKATOR",
+									"type": "numeric",
+									"length": 20,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "NCAS_NAZIV_CASOPISA",
+									"type": "varchar",
+									"length": 50,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "UREDNIK_IME_UREDNIKA",
+									"type": "varchar",
+									"length": 50,
+									"primaryKey": false,
+									"mandatory": true
+								},
+								{
+									"name": "UREDNIK_PREZIME_UREDNIKA",
+									"type": "varchar",
+									"length": 50,
+									"primaryKey": false,
+									"mandatory": true
+								},
+								{
+									"name": "UREDNIK_EMAIL_UREDNIKA",
+									"type": "varchar",
+									"length": 100,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "UO_IDENTIFIKATOR_ODBORA",
+									"type": "numeric",
+									"length": 20,
+									"primaryKey": true,
+									"mandatory": true
+								},
+								{
+									"name": "UREDNIK_OBLAST_UREDNIKA",
+									"type": "varchar",
+									"length": 50,
+									"primaryKey": false,
+									"mandatory": false
+								}
+							],
+							"relations": []
+						}
+					]
+				}
+			]
+		}
+	]
+}

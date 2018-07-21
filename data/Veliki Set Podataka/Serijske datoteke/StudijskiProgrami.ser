@@ -1,0 +1,4 @@
+path/StudijskiProgrami.txt
+field/OZNAKA_PROGRAMA/TYPE_CHAR/4/true
+field/NAZIV_KOJI_SE_STICE/TYPE_VARCHAR/80/false
+field/NAZIV PROGRAMA/TYPE_VARCHAR/80/false

@@ -1,0 +1,11 @@
+12th/Studenti.txt
+field/STRUKA/TYPE_CHAR/1/true
+field/BROJ INDEKSA/TYPE_VARCHAR/6/true
+field/PREZIME/TYPE_VARCHAR/20/false
+field/IME RODITELJA/TYPE_VARCHAR/20/false
+field/IME/TYPE_VARCHAR/20/false
+field/POL/TYPE_CHAR/1/false
+field/JMBG/TYPE_CHAR/13/false
+field/DATUM RODJENJA/TYPE_DATETIME/25/false
+field/ADRESA/TYPE_VARCHAR/80/false
+field/TELEFON/TYPE_VARCHAR/20/false

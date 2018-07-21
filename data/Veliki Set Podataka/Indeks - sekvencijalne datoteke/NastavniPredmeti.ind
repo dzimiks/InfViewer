@@ -1,0 +1,8 @@
+tree/NastavniPredmeti.tree
+overZone/NastavniPredmeti.over
+path/NastavniPredmeti.stxt
+field/OZNAKA_PLANA/TYPE_CHAR/2/true
+field/SIFRA_PREDMETA/TYPE_VARCHAR/5/true
+field/NAZIV_PREDMETA/TYPE_VARCHAR/80/false
+field/TRAJE_SEMESTARA/TYPE_NUMERIC/2/false
+field/BROJ_KREDITA/TYPE_NUMERIC/3/false

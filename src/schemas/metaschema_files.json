@@ -1,0 +1,760 @@
+{
+	"location": "data/Veliki Set Podataka",
+	"name": "Veliki Set Podataka",
+	"description": "Veliki set podataka u tri organizacije.",
+	"type": "files",
+	"infResources": [
+		{
+			"name": "VSP",
+			"packages": [
+				{
+					"name": "Serijske datoteke",
+					"type": "serial",
+					"entities": [
+						{
+							"name": "SE_NastavniPredmet",
+							"url": "Serijske datoteke/NastavniPredmeti.txt",
+							"attributes": [
+								{
+									"name": "OznakaPlana",
+									"type": "char",
+									"length": 2,
+									"primaryKey": true
+								},
+								{
+									"name": "SifraPredmeta",
+									"type": "varchar",
+									"length": 5,
+									"primaryKey": true
+								},
+								{
+									"name": "NazivPredmeta",
+									"type": "varchar",
+									"length": 80,
+									"primaryKey": false
+								},
+								{
+									"name": "TrajeSemestara",
+									"type": "numeric",
+									"length": 2,
+									"primaryKey": false
+								},
+								{
+									"name": "BrojKredita",
+									"type": "numeric",
+									"length": 3,
+									"primaryKey": false
+								}
+							],
+							"relations": []
+						},
+						{
+							"name": "SE_PlanStudijskogPrograma",
+							"url": "Serijske datoteke/PlanStudijskogPrograma.txt",
+							"attributes": [
+								{
+									"name": "OznakaPrograma",
+									"type": "char",
+									"length": 4,
+									"primaryKey": true
+								},
+								{
+									"name": "OznakaPlana",
+									"type": "char",
+									"length": 2,
+									"primaryKey": true
+								},
+								{
+									"name": "SifraPredmeta",
+									"type": "varchar",
+									"length": 5,
+									"primaryKey": true
+								},
+								{
+									"name": "GodinaPredmeta",
+									"type": "numeric",
+									"length": 1,
+									"primaryKey": false
+								},
+								{
+									"name": "SemestarPredmeta",
+									"type": "numeric",
+									"length": 2,
+									"primaryKey": false
+								}
+							],
+							"relations": [
+								{
+									"referencedAttributes": [
+										"SE_StudijskiProgram/OznakaPrograma"
+									],
+									"referringAttributes": [
+										"OznakaPrograma"
+									]
+								},
+								{
+									"referencedAttributes": [
+										"SE_NastavniPredmet/SifraPredmeta"
+									],
+									"referringAttributes": [
+										"SifraPredmeta"
+									]
+								}
+							]
+						},
+						{
+							"name": "SE_Student",
+							"url": "Serijske datoteke/Studenti.txt",
+							"attributes": [
+								{
+									"name": "Struka",
+									"type": "char",
+									"length": 1,
+									"primaryKey": true
+								},
+								{
+									"name": "BrojIndeksa",
+									"type": "numeric",
+									"length": 6,
+									"primaryKey": true
+								},
+								{
+									"name": "Prezime",
+									"type": "varchar",
+									"length": 20,
+									"primaryKey": false
+								},
+								{
+									"name": "ImeRoditelja",
+									"type": "varchar",
+									"length": 20,
+									"primaryKey": false
+								},
+								{
+									"name": "Ime",
+									"type": "varchar",
+									"length": 20,
+									"primaryKey": false
+								},
+								{
+									"name": "Pol",
+									"type": "char",
+									"length": 1,
+									"primaryKey": false
+								},
+								{
+									"name": "Jmbg",
+									"type": "char",
+									"length": 13,
+									"primaryKey": false
+								},
+								{
+									"name": "DatumRodjenja",
+									"type": "datetime",
+									"length": 25,
+									"primaryKey": false
+								},
+								{
+									"name": "Adresa",
+									"type": "varchar",
+									"length": 80,
+									"primaryKey": false
+								},
+								{
+									"name": "Telefon",
+									"type": "varchar",
+									"length": 20,
+									"primaryKey": false
+								}
+							],
+							"relations": []
+						},
+						{
+							"name": "SE_StudijskiProgram",
+							"url": "Serijske datoteke/StudijskiProgrami.txt",
+							"attributes": [
+								{
+									"name": "OznakaPrograma",
+									"type": "char",
+									"length": 4,
+									"primaryKey": true
+								},
+								{
+									"name": "NazivKojiSeStice",
+									"type": "varchar",
+									"length": 80,
+									"primaryKey": false
+								},
+								{
+									"name": "NazivPrograma",
+									"type": "varchar",
+									"length": 80,
+									"primaryKey": false
+								}
+							],
+							"relations": []
+						},
+						{
+							"name": "SE_TokStudija",
+							"url": "Serijske datoteke/TokStudija.txt",
+							"attributes": [
+								{
+									"name": "Struka",
+									"type": "char",
+									"length": 1,
+									"primaryKey": true
+								},
+								{
+									"name": "BrojIndeksa",
+									"type": "numeric",
+									"length": 6,
+									"primaryKey": true
+								},
+								{
+									"name": "OznakaPrograma",
+									"type": "char",
+									"length": 4,
+									"primaryKey": true
+								},
+								{
+									"name": "SkolskaGodina",
+									"type": "char",
+									"length": 4,
+									"primaryKey": true
+								},
+								{
+									"name": "GodinaStudija",
+									"type": "numeric",
+									"length": 1,
+									"primaryKey": false
+								},
+								{
+									"name": "UpisujePoPlanu",
+									"type": "char",
+									"length": 2,
+									"primaryKey": false
+								}
+							],
+							"relations": [
+								{
+									"referencedAttributes": [
+										"SE_Student/Struka"
+									],
+									"referringAttributes": [
+										"Struka"
+									]
+								},
+								{
+									"referencedAttributes": [
+										"SE_StudijskiProgram/OznakaPrograma"
+									],
+									"referringAttributes": [
+										"OznakaPrograma"
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Sekvencijalne datoteke",
+					"type": "sequential",
+					"entities": [
+						{
+							"name": "SQ_NastavniPredmet",
+							"url": "Sekvencijalne datoteke/NastavniPredmeti.stxt",
+							"attributes": [
+								{
+									"name": "OznakaPlana",
+									"type": "char",
+									"length": 2,
+									"primaryKey": true
+								},
+								{
+									"name": "SifraPredmeta",
+									"type": "varchar",
+									"length": 5,
+									"primaryKey": true
+								},
+								{
+									"name": "NazivPredmeta",
+									"type": "varchar",
+									"length": 80,
+									"primaryKey": false
+								},
+								{
+									"name": "TrajeSemestara",
+									"type": "numeric",
+									"length": 2,
+									"primaryKey": false
+								},
+								{
+									"name": "BrojKredita",
+									"type": "numeric",
+									"length": 3,
+									"primaryKey": false
+								}
+							],
+							"relations": []
+						},
+						{
+							"name": "SQ_PlanStudijskogPrograma",
+							"url": "Sekvencijalne datoteke/PlanStudijskogPrograma.stxt",
+							"attributes": [
+								{
+									"name": "OznakaPrograma",
+									"type": "char",
+									"length": 4,
+									"primaryKey": true
+								},
+								{
+									"name": "OznakaPlana",
+									"type": "char",
+									"length": 2,
+									"primaryKey": true
+								},
+								{
+									"name": "SifraPredmeta",
+									"type": "varchar",
+									"length": 5,
+									"primaryKey": true
+								},
+								{
+									"name": "GodinaPredmeta",
+									"type": "numeric",
+									"length": 1,
+									"primaryKey": false
+								},
+								{
+									"name": "SemestarPredmeta",
+									"type": "numeric",
+									"length": 2,
+									"primaryKey": false
+								}
+							],
+							"relations": [
+								{
+									"referencedAttributes": [
+										"SQ_StudijskiProgram/OznakaPrograma"
+									],
+									"referringAttributes": [
+										"OznakaPrograma"
+									]
+								},
+								{
+									"referencedAttributes": [
+										"SQ_NastavniPredmet/SifraPredmeta"
+									],
+									"referringAttributes": [
+										"SifraPredmeta"
+									]
+								}
+							]
+						},
+						{
+							"name": "SQ_Student",
+							"url": "Sekvencijalne datoteke/Studenti.stxt",
+							"attributes": [
+								{
+									"name": "Struka",
+									"type": "char",
+									"length": 1,
+									"primaryKey": true
+								},
+								{
+									"name": "BrojIndeksa",
+									"type": "numeric",
+									"length": 6,
+									"primaryKey": true
+								},
+								{
+									"name": "Prezime",
+									"type": "varchar",
+									"length": 20,
+									"primaryKey": false
+								},
+								{
+									"name": "ImeRoditelja",
+									"type": "varchar",
+									"length": 20,
+									"primaryKey": false
+								},
+								{
+									"name": "Ime",
+									"type": "varchar",
+									"length": 20,
+									"primaryKey": false
+								},
+								{
+									"name": "Pol",
+									"type": "char",
+									"length": 1,
+									"primaryKey": false
+								},
+								{
+									"name": "Jmbg",
+									"type": "char",
+									"length": 13,
+									"primaryKey": false
+								},
+								{
+									"name": "DatumRodjenja",
+									"type": "datetime",
+									"length": 25,
+									"primaryKey": false
+								},
+								{
+									"name": "Adresa",
+									"type": "varchar",
+									"length": 80,
+									"primaryKey": false
+								},
+								{
+									"name": "Telefon",
+									"type": "varchar",
+									"length": 20,
+									"primaryKey": false
+								}
+							],
+							"relations": []
+						},
+						{
+							"name": "SQ_StudijskiProgram",
+							"url": "Sekvencijalne datoteke/StudijskiProgrami.stxt",
+							"attributes": [
+								{
+									"name": "OznakaPrograma",
+									"type": "char",
+									"length": 4,
+									"primaryKey": true
+								},
+								{
+									"name": "NazivKojiSeStice",
+									"type": "varchar",
+									"length": 80,
+									"primaryKey": false
+								},
+								{
+									"name": "NazivPrograma",
+									"type": "varchar",
+									"length": 80,
+									"primaryKey": false
+								}
+							],
+							"relations": []
+						},
+						{
+							"name": "SQ_TokStudija",
+							"url": "Sekvencijalne datoteke/TokStudija.stxt",
+							"attributes": [
+								{
+									"name": "Struka",
+									"type": "char",
+									"length": 1,
+									"primaryKey": true
+								},
+								{
+									"name": "BrojIndeksa",
+									"type": "numeric",
+									"length": 6,
+									"primaryKey": true
+								},
+								{
+									"name": "OznakaPrograma",
+									"type": "char",
+									"length": 4,
+									"primaryKey": true
+								},
+								{
+									"name": "SkolskaGodina",
+									"type": "char",
+									"length": 4,
+									"primaryKey": true
+								},
+								{
+									"name": "GodinaStudija",
+									"type": "numeric",
+									"length": 1,
+									"primaryKey": false
+								},
+								{
+									"name": "UpisujePoPlanu",
+									"type": "char",
+									"length": 2,
+									"primaryKey": false
+								}
+							],
+							"relations": [
+								{
+									"referencedAttributes": [
+										"SQ_Student/Struka"
+									],
+									"referringAttributes": [
+										"Struka"
+									]
+								},
+								{
+									"referencedAttributes": [
+										"SQ_StudijskiProgram/OznakaPrograma"
+									],
+									"referringAttributes": [
+										"OznakaPrograma"
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Indeks - sekvencijalne datoteke",
+					"type": "indexSequential",
+					"entities": [
+						{
+							"name": "ISQ_NastavniPredmet",
+							"url": "Indeks - sekvencijalne datoteke/NastavniPredmeti.stxt",
+							"attributes": [
+								{
+									"name": "OznakaPlana",
+									"type": "char",
+									"length": 2,
+									"primaryKey": true
+								},
+								{
+									"name": "SifraPredmeta",
+									"type": "varchar",
+									"length": 5,
+									"primaryKey": true
+								},
+								{
+									"name": "NazivPredmeta",
+									"type": "varchar",
+									"length": 80,
+									"primaryKey": false
+								},
+								{
+									"name": "TrajeSemestara",
+									"type": "numeric",
+									"length": 2,
+									"primaryKey": false
+								},
+								{
+									"name": "BrojKredita",
+									"type": "numeric",
+									"length": 3,
+									"primaryKey": false
+								}
+							],
+							"relations": []
+						},
+						{
+							"name": "ISQ_PlanStudijskogPrograma",
+							"url": "Indeks - sekvencijalne datoteke/PlanStudijskogPrograma.stxt",
+							"attributes": [
+								{
+									"name": "OznakaPrograma",
+									"type": "char",
+									"length": 4,
+									"primaryKey": true
+								},
+								{
+									"name": "OznakaPlana",
+									"type": "char",
+									"length": 2,
+									"primaryKey": true
+								},
+								{
+									"name": "SifraPredmeta",
+									"type": "varchar",
+									"length": 5,
+									"primaryKey": true
+								},
+								{
+									"name": "GodinaPredmeta",
+									"type": "numeric",
+									"length": 1,
+									"primaryKey": false
+								},
+								{
+									"name": "SemestarPredmeta",
+									"type": "numeric",
+									"length": 2,
+									"primaryKey": false
+								}
+							],
+							"relations": [
+								{
+									"referencedAttributes": [
+										"ISQ_StudijskiProgram/OznakaPrograma"
+									],
+									"referringAttributes": [
+										"OznakaPrograma"
+									]
+								},
+								{
+									"referencedAttributes": [
+										"ISQ_NastavniPredmet/SifraPredmeta"
+									],
+									"referringAttributes": [
+										"SifraPredmeta"
+									]
+								}
+							]
+						},
+						{
+							"name": "ISQ_Student",
+							"url": "Indeks - sekvencijalne datoteke/Studenti.stxt",
+							"attributes": [
+								{
+									"name": "Struka",
+									"type": "char",
+									"length": 1,
+									"primaryKey": true
+								},
+								{
+									"name": "BrojIndeksa",
+									"type": "numeric",
+									"length": 6,
+									"primaryKey": true
+								},
+								{
+									"name": "Prezime",
+									"type": "varchar",
+									"length": 20,
+									"primaryKey": false
+								},
+								{
+									"name": "ImeRoditelja",
+									"type": "varchar",
+									"length": 20,
+									"primaryKey": false
+								},
+								{
+									"name": "Ime",
+									"type": "varchar",
+									"length": 20,
+									"primaryKey": false
+								},
+								{
+									"name": "Pol",
+									"type": "char",
+									"length": 1,
+									"primaryKey": false
+								},
+								{
+									"name": "Jmbg",
+									"type": "char",
+									"length": 13,
+									"primaryKey": false
+								},
+								{
+									"name": "DatumRodjenja",
+									"type": "datetime",
+									"length": 25,
+									"primaryKey": false
+								},
+								{
+									"name": "Adresa",
+									"type": "varchar",
+									"length": 80,
+									"primaryKey": false
+								},
+								{
+									"name": "Telefon",
+									"type": "varchar",
+									"length": 20,
+									"primaryKey": false
+								}
+							],
+							"relations": []
+						},
+						{
+							"name": "ISQ_StudijskiProgram",
+							"url": "Indeks - sekvencijalne datoteke/StudijskiProgrami.stxt",
+							"attributes": [
+								{
+									"name": "OznakaPrograma",
+									"type": "char",
+									"length": 4,
+									"primaryKey": true
+								},
+								{
+									"name": "NazivKojiSeStice",
+									"type": "varchar",
+									"length": 80,
+									"primaryKey": false
+								},
+								{
+									"name": "NazivPrograma",
+									"type": "varchar",
+									"length": 80,
+									"primaryKey": false
+								}
+							],
+							"relations": []
+						},
+						{
+							"name": "ISQ_TokStudija",
+							"url": "Indeks - sekvencijalne datoteke/TokStudija.stxt",
+							"attributes": [
+								{
+									"name": "Struka",
+									"type": "char",
+									"length": 1,
+									"primaryKey": true
+								},
+								{
+									"name": "BrojIndeksa",
+									"type": "numeric",
+									"length": 6,
+									"primaryKey": true
+								},
+								{
+									"name": "OznakaPrograma",
+									"type": "char",
+									"length": 4,
+									"primaryKey": true
+								},
+								{
+									"name": "SkolskaGodina",
+									"type": "char",
+									"length": 4,
+									"primaryKey": true
+								},
+								{
+									"name": "GodinaStudija",
+									"type": "numeric",
+									"length": 1,
+									"primaryKey": false
+								},
+								{
+									"name": "UpisujePoPlanu",
+									"type": "char",
+									"length": 2,
+									"primaryKey": false
+								}
+							],
+							"relations": [
+								{
+									"referencedAttributes": [
+										"ISQ_Student/Struka"
+									],
+									"referringAttributes": [
+										"Struka"
+									]
+								},
+								{
+									"referencedAttributes": [
+										"ISQ_StudijskiProgram/OznakaPrograma"
+									],
+									"referringAttributes": [
+										"OznakaPrograma"
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}
